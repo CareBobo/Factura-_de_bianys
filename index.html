@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Pagos 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="money-icon">💰</div>
+        <div class="money-icon">💸</div>
+        <div class="money-icon">💵</div>
+        <div class="money-icon">💲</div>
+        <div class="money-icon">🪙</div>
+    </div>
+
+    <div class="container">
+        <header class="app-header">
+            <h1>📊 Control de Finanzas 2025</h1>
+            <div class="summary-card">
+                <div class="total-display">
+                    <h3>Total Acumulado</h3>
+                    <p id="grand-total">$0.00</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="financeChart"></canvas>
+                </div>
+            </div>
+        </header>
+
+        <main class="excel-interface">
+            <div class="toolbar">
+                <div class="tool-btn active">Inicio</div>
+                <div class="tool-btn" id="export-btn"
+                    style="background: #2e7d32; color: white; font-weight: bold; margin-left: 20px;">💾 GUARDAR DATOS
+                    PARA CELULAR</div>
+                <div class="tool-btn">Insertar</div>
+                <div class="tool-btn">Diseño</div>
+                <div class="tool-btn">Fórmulas</div>
+            </div>
+            <div class="formula-bar">
+                <span class="fx">fx</span>
+                <input type="text" id="formula-input" readonly placeholder="Selecciona una celda...">
+            </div>
+
+            <div class="spreadsheet-container">
+                <table id="spreadsheet">
+                    <thead>
+                        <tr>
+                            <th class="row-header"></th>
+                            <th class="col-header">A</th>
+                            <th class="col-header">B</th>
+                            <th class="col-header">C</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sheet-body">
+                        <!-- Rows will be injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="export-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Tus Datos</h3>
+            <p style="margin-bottom: 10px; font-size: 0.9rem;">Si no puedes copiar, toma una foto de esto y envíala al
+                chat.</p>
+            <textarea id="export-area" readonly></textarea>
+            <button class="modal-btn"
+                onclick="document.getElementById('export-modal').style.display='none'">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
